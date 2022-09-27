@@ -15,8 +15,8 @@ export default {
   computed: {
     cardId() {
       let urlHashValue = this.$route.hash || '';
-      return urlHashValue.match(/^#\/card\/([0-9a-f]{5,40})$/)[1]
-
+      urlHashValue = urlHashValue.match(/^#\/card\/([0-9a-f]{5,40})$/)
+      return urlHashValue && urlHashValue[1] || ''
     }
   },
   watch: {
