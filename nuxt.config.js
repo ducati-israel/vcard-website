@@ -1,18 +1,15 @@
+const title = 'כרטיס חבר דוקאטי';
+
 export default {
-    server: {
-        host: '0'
-    },
-    ssr: false,
-    target: 'static',
     head: {
-        title: 'Ducati Israel',
+        title: title,
         htmlAttrs: {
             lang: 'en'
         },
         meta: [
             {charset: 'utf-8'},
-            {property: 'og:title', content: 'Ducati Israel'},
-            {property: 'twitter:title', content: 'Ducati Israel'},
+            {property: 'og:title', content: title},
+            {property: 'twitter:title', content: title},
             {property: 'og:description', content: 'description'},
             {property: 'twitter:description', content: 'description'},
             {property: 'og:image', content: ''},
@@ -25,6 +22,11 @@ export default {
             {rel: 'icon', type: 'image/x-icon', href: '/favicon.svg'}
         ]
     },
+    server: {
+        host: '0'
+    },
+    ssr: false,
+    target: 'static',
     css: [],
     plugins: [],
     components: true,
