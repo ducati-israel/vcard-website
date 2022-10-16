@@ -1,4 +1,5 @@
-const title = 'כרטיס חבר דוקאטי';
+const title = 'מועדון דוקאטי ישראל';
+const description = 'כרטיס חבר מועדון דוקאטי בישראל';
 
 export default {
     head: {
@@ -10,10 +11,10 @@ export default {
             {charset: 'utf-8'},
             {property: 'og:title', content: title},
             {property: 'twitter:title', content: title},
-            {property: 'og:description', content: 'description'},
-            {property: 'twitter:description', content: 'description'},
-            {property: 'og:image', content: ''},
-            {property: 'twitter:image', content: ''},
+            {property: 'og:description', content: description},
+            {property: 'twitter:description', content: description},
+            {property: 'og:image', content: 'preview.png'},
+            {property: 'twitter:image', content: 'preview.png'},
             {name: 'viewport', content: 'width=device-width,initial-scale=1.0'},
             {"http-equiv": 'X-UA-Compatible', content: 'IE=edge'},
             {hid: 'description', name: 'description', content: ''},
