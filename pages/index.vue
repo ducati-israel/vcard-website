@@ -299,13 +299,16 @@ export default {
         return
       }
 
-      let emailAddress = this.emailAddress;
+      let emailAddress = this.emailAddress || '';
+      emailAddress = emailAddress.toLowerCase();
 
       // TODO input validation for better UX
-      if (!emailAddress) {
+      let isValidEmail = /\S+@\S+\.\S+/.test(emailAddress);
+      if (!isValidEmail) {
         console.error('invalid email', emailAddress)
         return
       }
+
       let cardId = sha1(`${emailAddress}:${phoneNumber}`);
       this.cardId = cardId;
       try {
