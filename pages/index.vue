@@ -128,7 +128,7 @@
 
               <div class="app__vcard__info__field">
                 <div class="app__vcard__info__label">
-                  חברות מועדון (יחיד\בזוג)
+                  חברות מועדון (יחיד\זוגי)
                 </div>
 
                 <div class="app__vcard__info__value">
