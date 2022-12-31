@@ -145,6 +145,10 @@
                   {{ cardInfo.role }}
                 </div>
               </div>
+
+              <div class="app__vcard__info__comment">
+                * תקופת חברות עד סוף אוקטובר {{ cardInfo.membership_year }}
+              </div>
             </div>
           </div>
           <div class="app__form" v-else>
@@ -507,6 +511,12 @@ body {
 
         font-size: 24px;
         font-weight: 700;
+      }
+
+      &__comment {
+        color: $color-background-white;
+        font-size: 14px;
+        font-weight: 500;
       }
 
       &__label {
