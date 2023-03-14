@@ -95,6 +95,9 @@
                   <div class="app__vcard__card__info__year">
                     {{ cardInfo.membership_year }}
                   </div>
+                  <div class="app__vcard__card__info__expiration">
+                    חברות בתוקף עד 31/10/{{ cardInfo.membership_year }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -570,6 +573,12 @@ body {
           font-family: 'Inter', sans-serif;
           font-weight: 900;
           font-size: 48px;
+          color: $color-background-dark;
+        }
+
+        &__expiration {
+          padding-top: $padding-level-4;
+          font-size: 16px;
           color: $color-background-dark;
         }
 
