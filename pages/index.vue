@@ -152,6 +152,10 @@
               <div class="app__vcard__info__comment">
                 * תקופת חברות עד סוף אוקטובר {{ cardInfo.membership_year }}
               </div>
+              <div v-if="isIOS" class="app__form__button">
+                <a  class="wallet-button"  :href="`https://docilcard-c452d8d98421.herokuapp.com/card/f/${cardId}`">
+                </a>
+              </div>
             </div>
           </div>
           <div class="app__form" v-else>
@@ -223,6 +227,9 @@ export default {
       if (this.cardInfo && this.cardInfo.revoked) {
         return true;
       }
+    },
+    isIOS() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     }
   },
   watch: {
@@ -447,6 +454,18 @@ body {
     border-radius: 10px;
     padding: $padding-level-3 $padding-level-2;
     cursor: pointer;
+  }
+
+  .wallet-button {
+            display: inline-block;
+            height: 0;
+            width: 200px; /* or any percentage you find suitable */
+            padding-bottom: 15%; /* This must be the same as width to maintain aspect ratio */
+            background: url("~@/assets/apple_wallet_logo.svg")  no-repeat;
+            background-size: contain;
+            background-position: center;
+            border: none;
+            cursor: pointer;
   }
 
   &__form {
