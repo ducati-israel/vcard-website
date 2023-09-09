@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nuxt --hostname 0.0.0.0 --port 8080",
+    "dev": "NODE_OPTIONS='--openssl-legacy-provider' nuxt --hostname 0.0.0.0 --port 8080",
     "generate": "nuxt generate"
   },
   "repository": {

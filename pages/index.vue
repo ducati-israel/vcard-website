@@ -149,9 +149,6 @@
                 </div>
               </div>
 
-              <div class="app__vcard__info__comment">
-                * תקופת חברות עד סוף אוקטובר {{ cardInfo.membership_year }}
-              </div>
               <div v-if="isIOS" class="app__form__button">
                 <a  class="wallet-button"  :href="`https://ducati-israel-vcard.s3.eu-central-1.amazonaws.com/apple_card/${cardId}.pkpass`">
                 </a>
