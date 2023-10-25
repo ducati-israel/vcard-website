@@ -284,7 +284,7 @@ export default {
     async loadCardInfo(cardId) {
       this.loading = true;
       try {
-        let response = await axios.get(`https://ducati-israel-vcard.s3.eu-central-1.amazonaws.com/card/${cardId}.json`)
+        let response = await axios.get(`https://ducati-israel-vcard.s3.eu-central-1.amazonaws.com/card/${cardId}.json?q=${Date.now()}`)
         let cardInfo = response.data;
         this.cardInfo = cardInfo
         return cardInfo;
