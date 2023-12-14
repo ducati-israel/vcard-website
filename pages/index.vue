@@ -96,7 +96,7 @@
                     {{ cardInfo.membership_year }}
                   </div>
                   <div class="app__vcard__card__info__expiration">
-                    חברות בתוקף עד 31/10/{{ cardInfo.membership_year }}
+                    חברות בתוקף עד {{ expirationDate }}
                   </div>
                 </div>
               </div>
@@ -224,6 +224,13 @@ export default {
       if (this.cardInfo && this.cardInfo.revoked) {
         return true;
       }
+    },
+    expirationDate(){
+      if (!this.cardInfo){
+          return '-'
+      }
+
+      return new Date(this.cardInfo.membership_expiration).toLocaleDateString("he-IL").replaceAll('.', '/')
     },
     isIOS() {
       return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
