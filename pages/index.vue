@@ -93,7 +93,7 @@
                 </div>
                 <div class="app__vcard__card__info">
                   <div class="app__vcard__card__info__expiration">
-                    חברות בתוקף עד {{ expirationDate }}
+                    בתוקף עד {{ expirationDate }}
                   </div>
                 </div>
               </div>
