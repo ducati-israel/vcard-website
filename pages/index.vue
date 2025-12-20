@@ -150,6 +150,11 @@
                 <a  class="wallet-button"  :href="`https://ducati-israel-vcard.s3.eu-central-1.amazonaws.com/apple_card/${cardId}.pkpass`">
                 </a>
               </div>
+
+              <div v-if="isAndroid && googleCardUrl" class="app__form__button">
+                <a class="google-wallet-button" :href="googleCardUrl" target="_blank">
+                </a>
+              </div>
             </div>
           </div>
           <div class="app__form" v-else>
@@ -231,6 +236,9 @@ export default {
     },
     isIOS() {
       return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    },
+    isAndroid() {
+      return /Android/.test(navigator.userAgent);
     }
   },
   watch: {
@@ -291,6 +299,16 @@ export default {
         let response = await axios.get(`https://ducati-israel-vcard.s3.eu-central-1.amazonaws.com/card/${cardId}.json?q=${Date.now()}`)
         let cardInfo = response.data;
         this.cardInfo = cardInfo
+
+        // Fetch Google card URL for Android
+        try {
+          let androidResponse = await axios.get(`https://ducati-israel-vcard.s3.eu-central-1.amazonaws.com/android_card/${cardId}.json?q=${Date.now()}`)
+          this.googleCardUrl = androidResponse.data.url;
+        } catch (e) {
+          console.error('failed loading android card', e);
+          this.googleCardUrl = null;
+        }
+
         return cardInfo;
       } catch (e) {
         this.cardInfo = null;
@@ -349,6 +367,7 @@ export default {
       loading: false,
       cardNotFoundError: false,
       cardInfo: null,
+      googleCardUrl: null,
     }
   }
 }
@@ -463,6 +482,18 @@ body {
             width: 200px; /* or any percentage you find suitable */
             padding-bottom: 15%; /* This must be the same as width to maintain aspect ratio */
             background: url("~@/assets/apple_wallet_logo.svg")  no-repeat;
+            background-size: contain;
+            background-position: center;
+            border: none;
+            cursor: pointer;
+  }
+
+  .google-wallet-button {
+            display: inline-block;
+            height: 0;
+            width: 200px;
+            padding-bottom: 12%;
+            background: url("~@/assets/add_to_google_wallet_logo.svg") no-repeat;
             background-size: contain;
             background-position: center;
             border: none;
